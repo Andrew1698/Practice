@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 
 namespace RainJump.Views
 {
@@ -9,20 +9,48 @@ namespace RainJump.Views
             InitializeComponent();
         }
 
+        // ── Show / hide helpers ──────────────────────────────────────────
+
+        private void ShowMenu()
+        {
+            MainMenuView.Visibility = Visibility.Visible;
+            ViewHost.Visibility     = Visibility.Collapsed;
+            ViewHost.Content        = null;
+        }
+
+        private void ShowGame()
+        {
+            var game = new GameView();
+            game.OnLeave = ShowMenu;
+
+            ViewHost.Content    = game;
+            ViewHost.Visibility = Visibility.Visible;
+            MainMenuView.Visibility = Visibility.Collapsed;
+
+            // Focus so keyboard input works immediately
+            game.Focus();
+        }
+
+        private void ShowRecords()
+        {
+            var records = new RecordsView();
+            records.OnBack = ShowMenu;
+
+            ViewHost.Content    = records;
+            ViewHost.Visibility = Visibility.Visible;
+            MainMenuView.Visibility = Visibility.Collapsed;
+        }
+
         // ── Button Handlers ──────────────────────────────────────────────
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            // Stage 2: will navigate to the game view
-            MessageBox.Show("Game starting soon! (Stage 2)", "Rain Jump",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+            ShowGame();
         }
 
         private void RecordsButton_Click(object sender, RoutedEventArgs e)
         {
-            // Stage N: will show high-score / records view
-            MessageBox.Show("Records coming soon!", "Rain Jump",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+            ShowRecords();
         }
 
         private void QuitButton_Click(object sender, RoutedEventArgs e)

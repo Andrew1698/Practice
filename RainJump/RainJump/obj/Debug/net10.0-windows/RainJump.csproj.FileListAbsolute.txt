@@ -3,9 +3,13 @@ C:\Users\andre\Praktika\RainJump\RainJump\bin\Debug\net10.0-windows\RainJump.dep
 C:\Users\andre\Praktika\RainJump\RainJump\bin\Debug\net10.0-windows\RainJump.runtimeconfig.json
 C:\Users\andre\Praktika\RainJump\RainJump\bin\Debug\net10.0-windows\RainJump.dll
 C:\Users\andre\Praktika\RainJump\RainJump\bin\Debug\net10.0-windows\RainJump.pdb
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\GameView.baml
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\MainWindow.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\RecordsView.baml
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\App.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\GameView.g.cs
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\MainWindow.g.cs
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\RecordsView.g.cs
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\App.g.cs
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\RainJump_MarkupCompile.cache
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\RainJump.g.resources

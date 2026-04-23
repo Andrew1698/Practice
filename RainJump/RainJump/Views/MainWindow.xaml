@@ -1,4 +1,4 @@
-﻿<Window x:Class="RainJump.Views.MainWindow"
+<Window x:Class="RainJump.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Rain Jump"
@@ -12,6 +12,11 @@
 
     <!-- Root frame that will host different views (menu, game, records) -->
     <Grid x:Name="RootGrid">
+
+        <!-- Dynamic view host (GameView / RecordsView swap in here) -->
+        <ContentControl x:Name="ViewHost"
+                        Visibility="Collapsed"
+                        Panel.ZIndex="5"/>
 
         <!-- ═══════════════════════════════════ -->
         <!--           MAIN MENU VIEW            -->
