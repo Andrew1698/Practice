@@ -139,7 +139,9 @@ namespace RainJump.Views
     // ════════════════════════════════════════════════════════════════════
     public partial class GameView : UserControl
     {
-        // ── Constants ────────────────────────────────────────────────────
+        // ── Design resolution (matches the ViewBox content size in MainWindow) ──
+        private const double DesignW = 420.0;
+        private const double DesignH = 700.0;
         private const double Gravity       = 0.35;
         private const double JumpForce     = -13.5;
         private const double BoostForce    = -13.5 * 2.5;  // 2.5× normal jump (was 5×)
@@ -210,8 +212,8 @@ namespace RainJump.Views
             GameCanvas.Children.Clear();
             _platforms.Clear();
 
-            double w = ActualWidth  > 0 ? ActualWidth  : 420;
-            double h = ActualHeight > 0 ? ActualHeight : 660;
+            double w = DesignW;
+            double h = DesignH;
 
             // First platform: always Normal, centred under player
             double firstPlatY = h * 0.62;
@@ -329,7 +331,7 @@ namespace RainJump.Views
 
         private void UpdatePlayerPosition()
         {
-            double w = ActualWidth > 0 ? ActualWidth : 420;
+            double w = DesignW;
             if (_playerX > w)           _playerX = -PlayerSize;
             if (_playerX < -PlayerSize) _playerX = w;
 
@@ -370,8 +372,8 @@ namespace RainJump.Views
         {
             if (_isDead) return;
 
-            double w = ActualWidth  > 0 ? ActualWidth  : 420;
-            double h = ActualHeight > 0 ? ActualHeight : 660;
+            double w = DesignW;
+            double h = DesignH;
 
             // ── Input ────────────────────────────────────────────────────
             if (Keyboard.IsKeyDown(Key.Left) || Keyboard.IsKeyDown(Key.A))
