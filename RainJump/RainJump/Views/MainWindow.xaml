@@ -4,11 +4,16 @@
         Title="Rain Jump"
         Width="420"
         Height="700"
-        MinWidth="420"
-        MinHeight="700"
-        ResizeMode="CanMinimize"
+        MinWidth="280"
+        MinHeight="467"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        Background="#C6DBEF">
+        Background="#C6DBEF"
+        SizeChanged="Window_SizeChanged">
+
+    <!-- ViewBox scales everything uniformly from the 420×700 design size -->
+    <Viewbox Stretch="Uniform">
+        <Grid Width="420" Height="700" Background="#C6DBEF">
 
     <!-- Root frame that will host different views (menu, game, records) -->
     <Grid x:Name="RootGrid">
@@ -293,5 +298,8 @@
 
         </Grid>
 
-    </Grid>
+    </Grid><!-- RootGrid -->
+
+    </Grid><!-- Viewbox inner Grid -->
+    </Viewbox>
 </Window>
