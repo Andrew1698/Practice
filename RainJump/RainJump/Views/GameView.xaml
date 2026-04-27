@@ -1,29 +1,29 @@
 <UserControl x:Class="RainJump.Views.GameView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Background="#C6DBEF"
+             Background="{DynamicResource GameBgBlueBrush}"
              Focusable="True">
 
     <Grid x:Name="RootGrid">
 
         <!-- ── GAME CANVAS ── -->
         <Canvas x:Name="GameCanvas"
-                Background="#C6DBEF"
+                Background="{DynamicResource GameBgBlueBrush}"
                 ClipToBounds="True"/>
 
         <!-- ── SCORE (top-left) ── -->
         <TextBlock x:Name="ScoreText"
                    Text="Score: 0"
-                   FontFamily="Bahnschrift"
-                   FontSize="20"
+                   FontFamily="{StaticResource TitleFont}"
+                   FontSize="{StaticResource ScoreFontSize}"
                    FontWeight="Bold"
-                   Foreground="Black"
+                   Foreground="{DynamicResource ScoreTextBrush}"
                    Margin="12,10,0,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left"
                    Panel.ZIndex="10"/>
 
-        <!-- ── START PROMPT "Press / left or right" ── -->
+        <!-- ── START PROMPT ── -->
         <StackPanel x:Name="StartPrompt"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
@@ -31,16 +31,16 @@
                     Panel.ZIndex="10"
                     IsHitTestVisible="False">
             <TextBlock Text="Press"
-                       FontFamily="Bahnschrift"
+                       FontFamily="{StaticResource TitleFont}"
                        FontSize="26"
                        FontWeight="Bold"
-                       Foreground="#FBAED2"
+                       Foreground="{DynamicResource PinkAccentBrush}"
                        HorizontalAlignment="Center"/>
             <TextBlock Text="left or right"
-                       FontFamily="Bahnschrift"
+                       FontFamily="{StaticResource TitleFont}"
                        FontSize="26"
                        FontWeight="Bold"
-                       Foreground="#FBAED2"
+                       Foreground="{DynamicResource PinkAccentBrush}"
                        HorizontalAlignment="Center"/>
         </StackPanel>
 
@@ -49,31 +49,25 @@
               Visibility="Collapsed"
               Panel.ZIndex="20">
 
-            <!-- Dark tint -->
             <Rectangle Fill="#88000000"/>
 
-            <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
                 <TextBlock x:Name="FinalScoreText"
                            Text="Score: 0"
-                           FontFamily="Bahnschrift"
+                           FontFamily="{StaticResource TitleFont}"
                            FontSize="28"
                            FontWeight="Bold"
                            Foreground="White"
                            HorizontalAlignment="Center"
                            Margin="0,0,0,30"/>
 
-                <!-- Try Again -->
-                <Button x:Name="TryAgainButton"
-                        Content="Try Again"
+                <Button x:Name="TryAgainButton" Content="Try Again"
                         Style="{StaticResource MenuButtonStyle}"
                         Margin="0,0,0,18"
                         Click="TryAgainButton_Click"/>
 
-                <!-- Leave -->
-                <Button x:Name="LeaveButton"
-                        Content="Leave"
+                <Button x:Name="LeaveButton" Content="Leave"
                         Style="{StaticResource MenuButtonStyle}"
                         Click="LeaveButton_Click"/>
 

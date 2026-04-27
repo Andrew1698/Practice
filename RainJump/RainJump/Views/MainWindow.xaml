@@ -4,16 +4,19 @@
         Title="Rain Jump"
         Width="420"
         Height="700"
-        MinWidth="420"
-        MinHeight="700"
-        ResizeMode="CanMinimize"
+        MinWidth="280"
+        MinHeight="467"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
-        Background="#C6DBEF">
+        Background="{DynamicResource GameBgBlueBrush}"
+        SizeChanged="Window_SizeChanged">
 
-    <!-- Root frame that will host different views (menu, game, records) -->
+    <Viewbox Stretch="Uniform">
+        <Grid Width="420" Height="700"
+              Background="{DynamicResource GameBgBlueBrush}">
+
     <Grid x:Name="RootGrid">
 
-        <!-- Dynamic view host (GameView / RecordsView swap in here) -->
         <ContentControl x:Name="ViewHost"
                         Visibility="Collapsed"
                         Panel.ZIndex="5"/>
@@ -25,54 +28,21 @@
 
             <!-- Decorative background bubbles -->
             <Canvas IsHitTestVisible="False">
+                <Ellipse Canvas.Left="-60"  Canvas.Top="-60"   Width="220" Height="220" Fill="{DynamicResource BubbleWhiteBrush}"/>
+                <Ellipse Canvas.Right="-40" Canvas.Top="80"    Width="160" Height="160" Fill="{DynamicResource BubbleWhiteBrush}"/>
+                <Ellipse Canvas.Left="20"   Canvas.Top="280"   Width="80"  Height="80"  Fill="{DynamicResource BubbleWhiteFaintBrush}"/>
+                <Ellipse Canvas.Right="-70" Canvas.Bottom="-50" Width="250" Height="250" Fill="{DynamicResource BubbleWhiteBrush}"/>
+                <Ellipse Canvas.Left="30"   Canvas.Bottom="120" Width="55"  Height="55"  Fill="{DynamicResource BubbleWhiteFaintBrush}"/>
+                <Ellipse Canvas.Left="180"  Canvas.Top="160"   Width="24"  Height="24"  Fill="{DynamicResource PinkAccentFaintBrush}"/>
 
-                <!-- Large soft circle top-left -->
-                <Ellipse Canvas.Left="-60" Canvas.Top="-60"
-                         Width="220" Height="220"
-                         Fill="#18FFFFFF"/>
-
-                <!-- Medium circle top-right -->
-                <Ellipse Canvas.Right="-40" Canvas.Top="80"
-                         Width="160" Height="160"
-                         Fill="#18FFFFFF"/>
-
-                <!-- Small circle mid-left -->
-                <Ellipse Canvas.Left="20" Canvas.Top="280"
-                         Width="80" Height="80"
-                         Fill="#14FFFFFF"/>
-
-                <!-- Large soft circle bottom-right -->
-                <Ellipse Canvas.Right="-70" Canvas.Bottom="-50"
-                         Width="250" Height="250"
-                         Fill="#18FFFFFF"/>
-
-                <!-- Tiny circle bottom-left -->
-                <Ellipse Canvas.Left="30" Canvas.Bottom="120"
-                         Width="55" Height="55"
-                         Fill="#14FFFFFF"/>
-
-                <!-- Tiny accent dot -->
-                <Ellipse Canvas.Left="180" Canvas.Top="160"
-                         Width="24" Height="24"
-                         Fill="#22FBAED2"/>
-
-                <!-- Rain drop decorations -->
-                <Path Canvas.Left="60" Canvas.Top="120"
-                      Fill="#22FBAED2"
+                <Path Canvas.Left="60"  Canvas.Top="120" Fill="{DynamicResource PinkAccentFaintBrush}"
                       Data="M 8,0 C 8,0 16,10 16,16 A 8,8 0 0 1 0,16 C 0,10 8,0 8,0 Z"/>
-
-                <Path Canvas.Left="330" Canvas.Top="200"
-                      Fill="#22FFFFFF"
+                <Path Canvas.Left="330" Canvas.Top="200" Fill="{DynamicResource BubbleWhiteBrush}"
                       Data="M 8,0 C 8,0 16,10 16,16 A 8,8 0 0 1 0,16 C 0,10 8,0 8,0 Z"/>
-
-                <Path Canvas.Left="50" Canvas.Top="500"
-                      Fill="#22FBAED2"
+                <Path Canvas.Left="50"  Canvas.Top="500" Fill="{DynamicResource PinkAccentFaintBrush}"
                       Data="M 6,0 C 6,0 12,8 12,12 A 6,6 0 0 1 0,12 C 0,8 6,0 6,0 Z"/>
-
-                <Path Canvas.Right="60" Canvas.Bottom="200"
-                      Fill="#22FFFFFF"
+                <Path Canvas.Right="60" Canvas.Bottom="200" Fill="{DynamicResource BubbleWhiteBrush}"
                       Data="M 6,0 C 6,0 12,8 12,12 A 6,6 0 0 1 0,12 C 0,8 6,0 6,0 Z"/>
-
             </Canvas>
 
             <!-- Main content stack -->
@@ -80,7 +50,7 @@
                         HorizontalAlignment="Center"
                         Margin="0,-40,0,0">
 
-                <!-- ── TITLE "RAIN JUMP" in 2 columns ── -->
+                <!-- ── TITLE ── -->
                 <Grid Margin="0,0,0,60">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -88,210 +58,78 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Left column: R, I, N -->
+                    <!-- Left column: RAIN / JUMP -->
                     <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-
-                        <!-- "RAIN" -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Text="R"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="A"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="I"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="N"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
+                            <TextBlock Text="R" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="A" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="I" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="N" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
                         </StackPanel>
-
-                        <!-- "JUMP" -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock Text="J"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="U"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="M"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
-                            <TextBlock Text="P"
-                                       FontFamily="Bahnschrift"
-                                       FontSize="72"
-                                       FontWeight="Bold"
-                                       Foreground="#FBAED2"
-                                       LineHeight="72"
-                                       TextOptions.TextFormattingMode="Display">
-                                <TextBlock.Effect>
-                                    <DropShadowEffect Color="#CC8890AA"
-                                                      BlurRadius="8"
-                                                      ShadowDepth="3"
-                                                      Direction="270"
-                                                      Opacity="0.5"/>
-                                </TextBlock.Effect>
-                            </TextBlock>
+                            <TextBlock Text="J" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="U" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="M" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
+                            <TextBlock Text="P" Style="{DynamicResource TitleLetterStyle}"><TextBlock.Effect><DropShadowEffect Color="{StaticResource TitleShadowColor}" BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/></TextBlock.Effect></TextBlock>
                         </StackPanel>
-
                     </StackPanel>
 
                     <!-- Vertical divider -->
                     <Border Grid.Column="1"
                             Width="3"
-                            Background="#44FBAED2"
+                            Background="{DynamicResource PinkAccentSubtleBrush}"
                             CornerRadius="2"
                             VerticalAlignment="Stretch"
                             Margin="0,8,0,8"/>
 
-                    <!-- Right column: subtitle / tagline stacked vertically -->
-                    <StackPanel Grid.Column="2"
-                                VerticalAlignment="Center"
-                                HorizontalAlignment="Center">
-                        <TextBlock Text="☁"
-                                   FontSize="32"
-                                   Foreground="#AAFBAED2"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,0,0,4"/>
+                    <!-- Right column: tagline -->
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="☁" FontSize="32"
+                                   Foreground="{DynamicResource PinkAccentMutedBrush}"
+                                   HorizontalAlignment="Center" Margin="0,0,0,4"/>
                         <TextBlock Text="j u m p"
-                                   FontFamily="Bahnschrift Light"
-                                   FontSize="22"
-                                   Foreground="#BBFBAED2"
+                                   FontFamily="{StaticResource TitleLightFont}"
+                                   FontSize="{StaticResource SubtitleFontSize}"
+                                   Foreground="{DynamicResource PinkAccentSoftBrush}"
                                    HorizontalAlignment="Center"/>
                         <TextBlock Text="h i g h e r"
-                                   FontFamily="Bahnschrift Light"
-                                   FontSize="22"
-                                   Foreground="#BBFBAED2"
+                                   FontFamily="{StaticResource TitleLightFont}"
+                                   FontSize="{StaticResource SubtitleFontSize}"
+                                   Foreground="{DynamicResource PinkAccentSoftBrush}"
                                    HorizontalAlignment="Center"/>
-                        <TextBlock Text="💧"
-                                   FontSize="24"
-                                   HorizontalAlignment="Center"
-                                   Margin="0,8,0,0"/>
+                        <TextBlock Text="💧" FontSize="24"
+                                   HorizontalAlignment="Center" Margin="0,8,0,0"/>
                     </StackPanel>
-
                 </Grid>
 
                 <!-- ── BUTTONS ── -->
                 <StackPanel HorizontalAlignment="Center">
-
-                    <!-- Play Button -->
-                    <Button x:Name="PlayButton"
-                            Content="Play"
+                    <Button x:Name="PlayButton"    Content="Play"
                             Style="{StaticResource MenuButtonStyle}"
-                            Margin="0,0,0,18"
-                            Click="PlayButton_Click"/>
-
-                    <!-- Records Button -->
-                    <Button x:Name="RecordsButton"
-                            Content="Records"
+                            Margin="0,0,0,18" Click="PlayButton_Click"/>
+                    <Button x:Name="RecordsButton" Content="Records"
                             Style="{StaticResource MenuButtonStyle}"
-                            Margin="0,0,0,18"
-                            Click="RecordsButton_Click"/>
-
-                    <!-- Quit Button -->
-                    <Button x:Name="QuitButton"
-                            Content="Quit"
+                            Margin="0,0,0,18" Click="RecordsButton_Click"/>
+                    <Button x:Name="SettingsButton" Content="Settings"
+                            Style="{StaticResource MenuButtonStyle}"
+                            Margin="0,0,0,18" Click="SettingsButton_Click"/>
+                    <Button x:Name="QuitButton"    Content="Quit"
                             Style="{StaticResource MenuButtonStyle}"
                             Click="QuitButton_Click"/>
-
                 </StackPanel>
 
-                <!-- Version label -->
+                <!-- Version -->
                 <TextBlock Text="v0.1"
-                           FontFamily="Segoe UI"
-                           FontSize="11"
-                           Foreground="#668ABACC"
+                           FontFamily="{StaticResource VersionFont}"
+                           FontSize="{StaticResource VersionFontSize}"
+                           Foreground="{DynamicResource VersionTextBrush}"
                            HorizontalAlignment="Center"
                            Margin="0,40,0,0"/>
 
             </StackPanel>
-
         </Grid>
 
-    </Grid>
+    </Grid><!-- RootGrid -->
+    </Grid><!-- Viewbox inner Grid -->
+    </Viewbox>
 </Window>

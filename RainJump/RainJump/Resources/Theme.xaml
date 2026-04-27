@@ -1,0 +1,174 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         CORE COLORS
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <!-- Backgrounds -->
+    <Color x:Key="GameBgBlueColor">#C6DBEF</Color>
+    <Color x:Key="GameBgPinkColor">#F8DEEB</Color>
+
+    <!-- Accent / title -->
+    <Color x:Key="PinkAccentColor">#FBAED2</Color>
+
+    <!-- Player -->
+    <Color x:Key="PlayerBodyColor">#ADD8F8</Color>
+    <Color x:Key="PlayerOutlineColor">#E8EFF5</Color>
+    <Color x:Key="PlayerEyeColor">#FBAED2</Color>
+
+    <!-- Platforms -->
+    <Color x:Key="PlatformNormalColor">#222021</Color>
+    <Color x:Key="PlatformSpikeColor">#444243</Color>
+    <Color x:Key="PlatformBoostStripeColor">#FBAED2</Color>
+
+    <!-- UI chrome -->
+    <Color x:Key="ButtonBgColor">#FFFFFF</Color>
+    <Color x:Key="ButtonFgColor">#6AAED6</Color>
+    <Color x:Key="ButtonHoverBgColor">#EEF6FF</Color>
+    <Color x:Key="ButtonPressBgColor">#DDEEF8</Color>
+    <Color x:Key="ButtonBorderColor">#D8EEF8</Color>
+    <Color x:Key="ButtonHoverBorderColor">#FBAED2</Color>
+    <Color x:Key="ButtonShadowColor">#22AACCDD</Color>
+
+    <!-- Text -->
+    <Color x:Key="ScoreTextColor">#000000</Color>
+    <Color x:Key="VersionTextColor">#668ABACC</Color>
+    <Color x:Key="TitleShadowColor">#CC8890AA</Color>
+
+    <!-- Decorative overlays (alpha baked in) -->
+    <Color x:Key="BubbleWhiteColor">#18FFFFFF</Color>
+    <Color x:Key="BubbleWhiteFaintColor">#14FFFFFF</Color>
+    <Color x:Key="PinkAccentFaintColor">#22FBAED2</Color>
+    <Color x:Key="PinkAccentSubtleColor">#44FBAED2</Color>
+    <Color x:Key="PinkAccentMutedColor">#AAFBAED2</Color>
+    <Color x:Key="PinkAccentSoftColor">#BBFBAED2</Color>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         BRUSHES  (derived from colors above)
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <SolidColorBrush x:Key="GameBgBlueBrush"          Color="{DynamicResource GameBgBlueColor}"/>
+    <SolidColorBrush x:Key="GameBgPinkBrush"          Color="{DynamicResource GameBgPinkColor}"/>
+    <SolidColorBrush x:Key="PinkAccentBrush"          Color="{DynamicResource PinkAccentColor}"/>
+    <SolidColorBrush x:Key="PlayerBodyBrush"          Color="{DynamicResource PlayerBodyColor}"/>
+    <SolidColorBrush x:Key="PlayerOutlineBrush"       Color="{DynamicResource PlayerOutlineColor}"/>
+    <SolidColorBrush x:Key="PlayerEyeBrush"           Color="{DynamicResource PlayerEyeColor}"/>
+    <SolidColorBrush x:Key="PlatformNormalBrush"      Color="{DynamicResource PlatformNormalColor}"/>
+    <SolidColorBrush x:Key="PlatformSpikeExtraBrush"  Color="{DynamicResource PlatformSpikeColor}"/>
+    <SolidColorBrush x:Key="PlatformBoostBrush"       Color="{DynamicResource PlatformBoostStripeColor}"/>
+    <SolidColorBrush x:Key="ButtonBgBrush"            Color="{DynamicResource ButtonBgColor}"/>
+    <SolidColorBrush x:Key="ButtonFgBrush"            Color="{DynamicResource ButtonFgColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverBgBrush"       Color="{DynamicResource ButtonHoverBgColor}"/>
+    <SolidColorBrush x:Key="ButtonPressBgBrush"       Color="{DynamicResource ButtonPressBgColor}"/>
+    <SolidColorBrush x:Key="ButtonBorderBrush"        Color="{DynamicResource ButtonBorderColor}"/>
+    <SolidColorBrush x:Key="ButtonHoverBorderBrush"   Color="{DynamicResource ButtonHoverBorderColor}"/>
+    <SolidColorBrush x:Key="ButtonShadowBrush"        Color="{DynamicResource ButtonShadowColor}"/>
+    <SolidColorBrush x:Key="ScoreTextBrush"           Color="{DynamicResource ScoreTextColor}"/>
+    <SolidColorBrush x:Key="VersionTextBrush"         Color="{DynamicResource VersionTextColor}"/>
+    <SolidColorBrush x:Key="BubbleWhiteBrush"         Color="{DynamicResource BubbleWhiteColor}"/>
+    <SolidColorBrush x:Key="BubbleWhiteFaintBrush"    Color="{DynamicResource BubbleWhiteFaintColor}"/>
+    <SolidColorBrush x:Key="PinkAccentFaintBrush"     Color="{DynamicResource PinkAccentFaintColor}"/>
+    <SolidColorBrush x:Key="PinkAccentSubtleBrush"    Color="{DynamicResource PinkAccentSubtleColor}"/>
+    <SolidColorBrush x:Key="PinkAccentMutedBrush"     Color="{DynamicResource PinkAccentMutedColor}"/>
+    <SolidColorBrush x:Key="PinkAccentSoftBrush"      Color="{DynamicResource PinkAccentSoftColor}"/>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         FONTS
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <FontFamily x:Key="TitleFont">Bahnschrift</FontFamily>
+    <FontFamily x:Key="TitleLightFont">Bahnschrift Light</FontFamily>
+    <FontFamily x:Key="UiFont">Segoe UI Semibold</FontFamily>
+    <FontFamily x:Key="VersionFont">Segoe UI</FontFamily>
+
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="TitleFontSize">72</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="SubtitleFontSize">22</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="ButtonFontSize">20</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="ScoreFontSize">20</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="VersionFontSize">11</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="RecordsTitleFontSize">42</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="RecordsValueFontSize">64</system:Double>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         DIMENSIONS
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="ButtonWidth">200</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="ButtonHeight">52</system:Double>
+    <system:Double xmlns:system="clr-namespace:System;assembly=mscorlib"
+                   x:Key="ButtonRadius">26</system:Double>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         STYLES
+    ══════════════════════════════════════════════════════════════════════ -->
+
+    <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="Background"   Value="{DynamicResource ButtonBgBrush}"/>
+        <Setter Property="Foreground"   Value="{DynamicResource ButtonFgBrush}"/>
+        <Setter Property="FontFamily"   Value="{StaticResource UiFont}"/>
+        <Setter Property="FontSize"     Value="{StaticResource ButtonFontSize}"/>
+        <Setter Property="FontWeight"   Value="SemiBold"/>
+        <Setter Property="Width"        Value="{StaticResource ButtonWidth}"/>
+        <Setter Property="Height"       Value="{StaticResource ButtonHeight}"/>
+        <Setter Property="Cursor"       Value="Hand"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <!-- Shadow -->
+                        <Border CornerRadius="26"
+                                Background="{DynamicResource ButtonShadowBrush}"
+                                Margin="2,4,0,0"/>
+                        <!-- Surface -->
+                        <Border x:Name="ButtonBorder"
+                                CornerRadius="26"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="2"
+                                BorderBrush="{DynamicResource ButtonBorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Background"
+                                    Value="{DynamicResource ButtonHoverBgBrush}"/>
+                            <Setter TargetName="ButtonBorder" Property="BorderBrush"
+                                    Value="{DynamicResource ButtonHoverBorderBrush}"/>
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource PinkAccentBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBorder" Property="Background"
+                                    Value="{DynamicResource ButtonPressBgBrush}"/>
+                            <Setter TargetName="ButtonBorder" Property="BorderBrush"
+                                    Value="{DynamicResource ButtonHoverBorderBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Title letter style (reusable across all 8 title letters) -->
+    <Style x:Key="TitleLetterStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily"   Value="{StaticResource TitleFont}"/>
+        <Setter Property="FontSize"     Value="{StaticResource TitleFontSize}"/>
+        <Setter Property="FontWeight"   Value="Bold"/>
+        <Setter Property="Foreground"   Value="{DynamicResource PinkAccentBrush}"/>
+        <Setter Property="LineHeight"   Value="72"/>
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+    </Style>
+
+</ResourceDictionary>

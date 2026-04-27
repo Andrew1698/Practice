@@ -22,3 +22,8 @@ C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\refint\RainJ
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\RainJump.pdb
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\RainJump.genruntimeconfig.cache
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\ref\RainJump.dll
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Resources\Theme.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\CustomizeView.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\SettingsView.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\CustomizeView.g.cs
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\SettingsView.g.cs

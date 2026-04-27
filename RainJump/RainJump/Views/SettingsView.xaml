@@ -1,9 +1,10 @@
-<UserControl x:Class="RainJump.Views.RecordsView"
+<UserControl x:Class="RainJump.Views.SettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource GameBgBlueBrush}">
 
     <Grid>
+        <!-- Decorative bubbles -->
         <Canvas IsHitTestVisible="False">
             <Ellipse Canvas.Left="-60"  Canvas.Top="-60"    Width="200" Height="200" Fill="{DynamicResource BubbleWhiteBrush}"/>
             <Ellipse Canvas.Right="-40" Canvas.Bottom="-40" Width="220" Height="220" Fill="{DynamicResource BubbleWhiteBrush}"/>
@@ -11,13 +12,14 @@
 
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <TextBlock Text="Best Score:"
+            <!-- Title -->
+            <TextBlock Text="Settings"
                        FontFamily="{StaticResource TitleFont}"
-                       FontSize="{StaticResource RecordsTitleFontSize}"
+                       FontSize="48"
                        FontWeight="Bold"
                        Foreground="{DynamicResource PinkAccentBrush}"
                        HorizontalAlignment="Center"
-                       Margin="0,0,0,20">
+                       Margin="0,0,0,50">
                 <TextBlock.Effect>
                     <DropShadowEffect Color="{DynamicResource TitleShadowColor}"
                                       BlurRadius="8" ShadowDepth="3"
@@ -25,25 +27,16 @@
                 </TextBlock.Effect>
             </TextBlock>
 
-            <TextBlock x:Name="BestScoreValue"
-                       Text="0"
-                       FontFamily="{StaticResource TitleFont}"
-                       FontSize="{StaticResource RecordsValueFontSize}"
-                       FontWeight="Bold"
-                       Foreground="{DynamicResource ScoreTextBrush}"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,50"/>
-
-            <Button x:Name="BackButton"  Content="Back"
+            <Button x:Name="CustomizeButton" Content="Customize"
                     Style="{StaticResource MenuButtonStyle}"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,18"
-                    Click="BackButton_Click"/>
+                    Click="CustomizeButton_Click"/>
 
-            <Button x:Name="ResetButton" Content="Reset"
+            <Button x:Name="BackButton" Content="Back"
                     Style="{StaticResource MenuButtonStyle}"
                     HorizontalAlignment="Center"
-                    Click="ResetButton_Click"/>
+                    Click="BackButton_Click"/>
 
         </StackPanel>
     </Grid>
