@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\andre\Praktika\RainJump\RainJump\App.xaml
-6-1844988587
+9-433390172
 
-11643770037
+16467566667
 2061815282281
-Resources\Theme.xaml;Views\CustomizeView.xaml;Views\GameView.xaml;Views\MainWindow.xaml;Views\RecordsView.xaml;Views\SettingsView.xaml;
+Resources\Theme.xaml;Views\AuthView.xaml;Views\CustomizeView.xaml;Views\GameView.xaml;Views\LoginView.xaml;Views\MainWindow.xaml;Views\RecordsView.xaml;Views\RegisterView.xaml;Views\SettingsView.xaml;
 
 False
 

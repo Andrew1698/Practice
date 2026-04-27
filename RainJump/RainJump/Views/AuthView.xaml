@@ -1,0 +1,64 @@
+<UserControl x:Class="RainJump.Views.AuthView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource GameBgBlueBrush}">
+
+    <Grid>
+        <!-- Decorative bubbles -->
+        <Canvas IsHitTestVisible="False">
+            <Ellipse Canvas.Left="-60" Canvas.Top="-60"   Width="220" Height="220" Fill="{DynamicResource BubbleWhiteBrush}"/>
+            <Ellipse Canvas.Right="-40" Canvas.Bottom="-40" Width="220" Height="220" Fill="{DynamicResource BubbleWhiteBrush}"/>
+            <Ellipse Canvas.Left="20"  Canvas.Top="280"   Width="80"  Height="80"  Fill="{DynamicResource BubbleWhiteFaintBrush}"/>
+        </Canvas>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            <!-- Title -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
+                <TextBlock Text="RAIN " FontFamily="{DynamicResource TitleFont}"
+                           FontSize="52" FontWeight="Bold"
+                           Foreground="{DynamicResource PinkAccentBrush}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="{DynamicResource TitleShadowColor}"
+                                          BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock Text="JUMP" FontFamily="{DynamicResource TitleFont}"
+                           FontSize="52" FontWeight="Bold"
+                           Foreground="{DynamicResource PinkAccentBrush}">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="{DynamicResource TitleShadowColor}"
+                                          BlurRadius="8" ShadowDepth="3" Direction="270" Opacity="0.5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+
+            <TextBlock Text="Welcome!"
+                       FontFamily="{DynamicResource TitleFont}"
+                       FontSize="20"
+                       Foreground="{DynamicResource PinkAccentBrush}"
+                       HorizontalAlignment="Center"
+                       Opacity="0.7"
+                       Margin="0,0,0,50"/>
+
+            <!-- Buttons -->
+            <Button Content="Login"
+                    Style="{DynamicResource MenuButtonStyle}"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,18"
+                    Click="LoginButton_Click"/>
+
+            <Button Content="Register"
+                    Style="{DynamicResource MenuButtonStyle}"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,18"
+                    Click="RegisterButton_Click"/>
+
+            <Button Content="Continue as Guest"
+                    Style="{DynamicResource MenuButtonStyle}"
+                    HorizontalAlignment="Center"
+                    Click="GuestButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

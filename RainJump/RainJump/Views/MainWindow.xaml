@@ -105,26 +105,37 @@
                 <!-- ── BUTTONS ── -->
                 <StackPanel HorizontalAlignment="Center">
                     <Button x:Name="PlayButton"    Content="Play"
-                            Style="{StaticResource MenuButtonStyle}"
+                            Style="{DynamicResource MenuButtonStyle}"
                             Margin="0,0,0,18" Click="PlayButton_Click"/>
                     <Button x:Name="RecordsButton" Content="Records"
-                            Style="{StaticResource MenuButtonStyle}"
+                            Style="{DynamicResource MenuButtonStyle}"
                             Margin="0,0,0,18" Click="RecordsButton_Click"/>
                     <Button x:Name="SettingsButton" Content="Settings"
-                            Style="{StaticResource MenuButtonStyle}"
+                            Style="{DynamicResource MenuButtonStyle}"
                             Margin="0,0,0,18" Click="SettingsButton_Click"/>
+                    <Button x:Name="LogoutButton"  Content="Log Out"
+                            Style="{DynamicResource MenuButtonStyle}"
+                            Margin="0,0,0,18" Click="LogoutButton_Click"/>
                     <Button x:Name="QuitButton"    Content="Quit"
-                            Style="{StaticResource MenuButtonStyle}"
+                            Style="{DynamicResource MenuButtonStyle}"
                             Click="QuitButton_Click"/>
                 </StackPanel>
 
-                <!-- Version -->
+                <!-- Welcome label + version -->
+                <TextBlock x:Name="WelcomeLabel"
+                           Text="Playing as Guest"
+                           FontFamily="{DynamicResource TitleFont}"
+                           FontSize="13"
+                           Foreground="{DynamicResource PinkAccentBrush}"
+                           HorizontalAlignment="Center"
+                           Opacity="0.7"
+                           Margin="0,20,0,0"/>
                 <TextBlock Text="v0.1"
                            FontFamily="{StaticResource VersionFont}"
                            FontSize="{StaticResource VersionFontSize}"
                            Foreground="{DynamicResource VersionTextBrush}"
                            HorizontalAlignment="Center"
-                           Margin="0,40,0,0"/>
+                           Margin="0,6,0,0"/>
 
             </StackPanel>
         </Grid>

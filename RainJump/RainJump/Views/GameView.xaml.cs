@@ -158,10 +158,11 @@ namespace RainJump.Views
         // Boost fills the rest (15)
 
         // ── Background colour cycling ─────────────────────────────────────
-        private const int    BgCyclePoints = 1500;  // full cycle length
-        private const double BgPeakFrac    = 750.0 / 1500.0; // fully pink at 750pts
-        private static readonly Color BgBlue = ThemeColors.GameBgBlue;
-        private static readonly Color BgPink  = ThemeColors.GameBgPink;
+        private const int    BgCyclePoints = 1500;
+        private const double BgPeakFrac    = 750.0 / 1500.0;
+        // Read fresh from ThemeColors each cycle so theme changes take effect
+        private Color BgBlue => ThemeColors.GameBgBlue;
+        private Color BgPink => ThemeColors.GameBgPink;
         private readonly SolidColorBrush _bgBrush = new SolidColorBrush(ThemeColors.GameBgBlue);
 
         // ── Progressive gravity ───────────────────────────────────────────
@@ -228,7 +229,7 @@ namespace RainJump.Views
             GameCanvas.Children.Clear();
             _platforms.Clear();
 
-            // Reset background to blue
+            // Reset background to current theme's blue
             _bgBrush.Color        = BgBlue;
             GameCanvas.Background = _bgBrush;
 
@@ -694,8 +695,8 @@ namespace RainJump.Views
             _isDead = true;
             _gameLoop.Stop();
 
-            if (_score > ScoreManager.BestScore)
-                ScoreManager.BestScore = _score;
+            if (_score > SessionManager.BestScore)
+                SessionManager.BestScore = _score;
 
             FinalScoreText.Text     = $"Score: {_score}";
             DeathOverlay.Visibility = Visibility.Visible;

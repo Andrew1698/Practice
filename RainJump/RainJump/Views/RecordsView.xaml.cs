@@ -15,17 +15,25 @@ namespace RainJump.Views
 
         private void RefreshScore()
         {
-            BestScoreValue.Text = ScoreManager.BestScore.ToString();
+            if (SessionManager.IsGuest)
+            {
+                BestScoreValue.Text = "—";
+                ResetButton.IsEnabled = false;
+                ResetButton.Opacity = 0.4;
+            }
+            else
+            {
+                BestScoreValue.Text = SessionManager.BestScore.ToString();
+                ResetButton.IsEnabled = true;
+                ResetButton.Opacity = 1.0;
+            }
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnBack?.Invoke();
-        }
+        private void BackButton_Click(object sender, RoutedEventArgs e) => OnBack?.Invoke();
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            ScoreManager.Reset();
+            SessionManager.ResetBestScore();
             RefreshScore();
         }
     }

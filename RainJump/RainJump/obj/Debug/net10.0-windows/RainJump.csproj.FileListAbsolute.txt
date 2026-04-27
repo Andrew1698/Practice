@@ -27,3 +27,9 @@ C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\Custom
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\SettingsView.baml
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\CustomizeView.g.cs
 C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\SettingsView.g.cs
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\AuthView.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\LoginView.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\RegisterView.baml
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\AuthView.g.cs
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\LoginView.g.cs
+C:\Users\andre\Praktika\RainJump\RainJump\obj\Debug\net10.0-windows\Views\RegisterView.g.cs

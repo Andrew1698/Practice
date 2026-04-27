@@ -11,6 +11,9 @@ namespace RainJump.Views
         public MainWindow()
         {
             InitializeComponent();
+            UserManager.Load();
+            // Start at auth screen
+            Loaded += (_, _) => ShowAuth();
         }
 
         // ── Aspect ratio lock ────────────────────────────────────────────
@@ -22,21 +25,51 @@ namespace RainJump.Views
             _adjusting = false;
         }
 
-        // ── Navigation ───────────────────────────────────────────────────
+        // ── Auth flow ────────────────────────────────────────────────────
+        private void ShowAuth()
+        {
+            var auth = new AuthView();
+            auth.OnLogin    = ShowLogin;
+            auth.OnRegister = ShowRegister;
+            auth.OnGuest    = () => { SessionManager.Logout(); ShowMenu(); };
+            SwapView(auth);
+        }
+
+        private void ShowLogin()
+        {
+            var login = new LoginView();
+            login.OnSuccess = ShowMenu;
+            login.OnCancel  = ShowAuth;
+            SwapView(login);
+        }
+
+        private void ShowRegister()
+        {
+            var register = new RegisterView();
+            register.OnSuccess = ShowMenu;
+            register.OnCancel  = ShowAuth;
+            SwapView(register);
+        }
+
+        // ── Main navigation ──────────────────────────────────────────────
         private void ShowMenu()
         {
             MainMenuView.Visibility = Visibility.Visible;
             ViewHost.Visibility     = Visibility.Collapsed;
             ViewHost.Content        = null;
+
+            // Show logged-in user name if applicable
+            if (!SessionManager.IsGuest)
+                WelcomeLabel.Text = $"Hi, {SessionManager.CurrentUser!.Nickname}!";
+            else
+                WelcomeLabel.Text = "Playing as Guest";
         }
 
         private void ShowGame()
         {
             var game = new GameView();
             game.OnLeave = ShowMenu;
-            ViewHost.Content        = game;
-            ViewHost.Visibility     = Visibility.Visible;
-            MainMenuView.Visibility = Visibility.Collapsed;
+            SwapView(game);
             game.Focus();
         }
 
@@ -44,9 +77,7 @@ namespace RainJump.Views
         {
             var records = new RecordsView();
             records.OnBack = ShowMenu;
-            ViewHost.Content        = records;
-            ViewHost.Visibility     = Visibility.Visible;
-            MainMenuView.Visibility = Visibility.Collapsed;
+            SwapView(records);
         }
 
         private void ShowSettings()
@@ -54,24 +85,32 @@ namespace RainJump.Views
             var settings = new SettingsView();
             settings.OnBack      = ShowMenu;
             settings.OnCustomize = ShowCustomize;
-            ViewHost.Content        = settings;
-            ViewHost.Visibility     = Visibility.Visible;
-            MainMenuView.Visibility = Visibility.Collapsed;
+            SwapView(settings);
         }
 
         private void ShowCustomize()
         {
             var customize = new CustomizeView();
             customize.OnBack = ShowSettings;
-            ViewHost.Content    = customize;
-            ViewHost.Visibility = Visibility.Visible;
-            // MainMenuView already hidden
+            SwapView(customize);
         }
 
-        // ── Button handlers ──────────────────────────────────────────────
+        private void SwapView(System.Windows.Controls.UserControl view)
+        {
+            MainMenuView.Visibility = Visibility.Collapsed;
+            ViewHost.Content        = view;
+            ViewHost.Visibility     = Visibility.Visible;
+        }
+
+        // ── Button Handlers ──────────────────────────────────────────────
         private void PlayButton_Click(object sender, RoutedEventArgs e)     => ShowGame();
         private void RecordsButton_Click(object sender, RoutedEventArgs e)  => ShowRecords();
         private void SettingsButton_Click(object sender, RoutedEventArgs e) => ShowSettings();
-        private void QuitButton_Click(object sender, RoutedEventArgs e)     => Application.Current.Shutdown();
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            SessionManager.Logout();
+            ShowAuth();
+        }
+        private void QuitButton_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
     }
 }
